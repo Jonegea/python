@@ -9,19 +9,19 @@ class GestionClientesApp(tk.Tk):   #Genera una herencia. creo la clase con sus f
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(pady=10, padx=10)
 
-        self.solapa_alta = AltaClienteSolapa(self.notebook)
+        self.solapa_alta = AltaCliente(self.notebook)
         self.notebook.add(self.solapa_alta, text="Dar de Alta")
 
-        self.solapa_baja = BajaClienteSolapa(self.notebook)
+        self.solapa_baja = BajaCliente(self.notebook)
         self.notebook.add(self.solapa_baja, text="Dar de Baja")
 
-        self.solapa_buscar = BuscarClienteSolapa(self.notebook)
+        self.solapa_buscar = BuscarCliente(self.notebook)
         self.notebook.add(self.solapa_buscar, text="Buscar Cliente")
 
-        self.solapa_listar = ListarClientesSolapa(self.notebook)
+        self.solapa_listar = ListarClientes(self.notebook)
         self.notebook.add(self.solapa_listar, text="Listar Clientes")
 
-        self.solapa_modificar = ModificarClienteSolapa(self.notebook)
+        self.solapa_modificar = ModificarCliente(self.notebook)
         self.notebook.add(self.solapa_modificar, text="Modificar cliente")
 
         self.crear_tabla()
@@ -35,7 +35,7 @@ class GestionClientesApp(tk.Tk):   #Genera una herencia. creo la clase con sus f
         conn.close()
 
 
-class AltaClienteSolapa(ttk.Frame):
+class AltaCliente(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)#llama al constructor padre
         self.label_nombre = tk.Label(self, text="Nombre:")
@@ -73,7 +73,7 @@ class AltaClienteSolapa(ttk.Frame):
         self.entry_telefono.delete(0, tk.END)
 
 
-class BajaClienteSolapa(ttk.Frame):
+class BajaCliente(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
         self.label_codigo = tk.Label(self, text="Código:")
@@ -96,7 +96,7 @@ class BajaClienteSolapa(ttk.Frame):
         self.entry_codigo.delete(0, tk.END)
 
 
-class BuscarClienteSolapa(ttk.Frame):
+class BuscarCliente(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
         self.label_codigo = tk.Label(self, text="Código:")
@@ -125,7 +125,7 @@ class BuscarClienteSolapa(ttk.Frame):
             self.label_resultado.config(text="Cliente no encontrado")
 
 
-class ListarClientesSolapa(ttk.Frame):
+class ListarClientes(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
         self.button_listar = tk.Button(self, text="Listar Clientes", command=self.listar_clientes)
@@ -147,7 +147,7 @@ class ListarClientesSolapa(ttk.Frame):
         self.label_resultado.config(text=resultado)
 
 
-class ModificarClienteSolapa(ttk.Frame):
+class ModificarCliente(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)#llama al constructor padre
         self.label_codigo = tk.Label(self, text="codigo:")
